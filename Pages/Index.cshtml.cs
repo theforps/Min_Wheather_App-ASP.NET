@@ -1,27 +1,30 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
 
 namespace Wheather.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
-        public string name { get; set; }
+        [Required]
+        public string Name { get; set; }
 
-        public IndexModel(ILogger<IndexModel> logger)
+
+        public IndexModel()
         {
-            _logger = logger;
-
-            name = "Подольск";
+            Name = "Moscow";
         }
+
+
 
         public void OnGet()
         {
-           
+
         }
 
-        public void OnPost(string city) { 
-            name = city;
+        public void OnPost() {
+            
         }
     }
 }
