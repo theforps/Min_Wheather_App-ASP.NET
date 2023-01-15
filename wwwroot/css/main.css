@@ -3,6 +3,7 @@
     margin-bottom: 70px;
     place-content: center;
     display: flex;
+    width: 100%;
 }
 
 .bg {
@@ -14,24 +15,43 @@
 
 .search {
     background: #686868;
-    border: none;
     opacity: 0.6;
+    border: none;
     border-radius: 10px;
-    height:auto;
-    width:auto;
+    height: auto;
+    width: auto;
     padding: 10px;
 }
 
 .info-city {
     border: none;
     border-radius: 10px;
-    width: 68%;
+    width: 60%;
+    opacity: 0.6;
     height: auto;
     background-color: white;
     margin-bottom: 150px;
     margin-left: auto;
     margin-right: auto;
-    padding: 40px;
+    padding: 70px;
     box-sizing: border-box;
     display: block;
+}
+
+.title
+{
+    display: flex;
+}
+
+.date {
+    font-size: 20px;
+    width: contain;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: right;
+}
+
+.name-city {
+    font-size: 50px;
 }
