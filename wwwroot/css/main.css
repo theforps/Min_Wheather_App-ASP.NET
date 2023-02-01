@@ -1,22 +1,23 @@
 ﻿.block-input {
     margin-top: 50px;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
     place-content: center;
     display: flex;
     width: 100%;
 }
 
 .bg {
-    background-image: url('https://images.unsplash.com/photo-1620503374956-c942862f0372?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');
+    background-image: url("../images/clouds.jpg");
     height: 100%;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    font-family: 'Comfortaa', cursive;
 }
 
 .search {
     background: #686868;
-    opacity: 0.6;
+    opacity: 0.8;
     border: none;
     border-radius: 10px;
     height: auto;
@@ -26,33 +27,32 @@
 
 .info-city {
     border: none;
-    border-radius: 10px;
-    width: 60%;
-    opacity: 0.6;
-    height: auto;
+    border-radius: 20px;
+    width: 90%;
+    opacity: 0.8;
     background-color: white;
-    margin-bottom: 150px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 70px;
+    margin: auto;
+    padding: 50px;
     box-sizing: border-box;
     display: block;
+    color: #12685b;
+    font-weight: 700;
 }
 
-.title
-{
-    display: flex;
+.name-city-country {
+    font-weight: 700;
+    word-wrap: break-word;
 }
 
-.date {
-    font-size: 20px;
-    width: contain;
-    margin-left: auto;
-    margin-top: auto;
-    margin-bottom: auto;
-    text-align: right;
-}
-
-.name-city {
+.temper {
     font-size: 50px;
+    font-weight: 400;
+    color: #68121f;
+}
+
+.info-about-wheather {
+    margin-left: 80px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #68121f;
 }

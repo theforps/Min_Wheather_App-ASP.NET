@@ -1,25 +1,31 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.ComponentModel.DataAnnotations;
-using System.Xml.Linq;
 
 namespace Wheather.Pages
 {
     public class IndexModel : PageModel
     {
-        [Required]
-        public string NameOfTheCity { get; set; }
-        public string Degrees { get; set; }
-        public string Weather { get; set; }
-        public string ImgWeather { get; set; }
+
+        public string name = "";
+        public WheatherModel wheather = new WheatherModel();
 
         public void OnGet()
         {
-            NameOfTheCity = "Moscow";
+            string ip = Request.HttpContext.Connection.RemoteIpAddress.ToString();
+            wheather = ConnectToWheatherApi.GetWheather(ip).GetAwaiter().GetResult();
         }
 
-        public void OnPost() {
-            
+        public void OnPost(string name) {
+            wheather = ConnectToWheatherApi.GetWheather(name).GetAwaiter().GetResult();
+
+            if (wheather.nameOfTheCity == null)
+            {
+                name = "";
+            }
+            else
+            {
+                name = wheather.nameOfTheCity;
+            }
         }
     }
 }

@@ -1,22 +1,39 @@
 ﻿@page
+@using System.Web;
 @model Wheather.Pages.IndexModel
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+
 
 <form method="post">
     <div>
         <div class="block-input input-group">
-            <input autocomplete="off" class="input-group-lg" required type="text" placeholder="Enter the name of the city" asp-for="NameOfTheCity"/>
+            <input autocomplete="off" class="input-group-lg" required type="text" placeholder="Enter the name of the city" asp-for="@Model.name" value="@Model.name"/>
             <button class="search input-group-lg" type="submit">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-search" viewBox="0 0 16 16">
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                 </svg>
             </button>
         </div>
-        <div class="info-city">
-            <div class="title">
-                <h2 class="name-city">@Model.NameOfTheCity</h2>
-                <p class="date">Воскресенье, 15 января</p>
+        @if (Model.wheather.nameOfTheCity != "")
+        {
+            <div class="info-city">
+                <div class="d-flex flex-wrap justify-content-center w-100">
+                    <div class="w-100 text-center">
+                        <h2 class="name-city-country" style="font-size: 60px;">@Model.wheather.nameOfTheCity</h2>
+                        <h2 class="name-city-country">@Model.wheather.country</h2>
+                    </div>
+                    <div class="d-flex align-items-center mt-4 align-content-center">
+                            <p class="temper">@Model.wheather.temp_c &deg;c</p>
+                            <div class="text-center d-block info-about-wheather">
+                            <img src="@Model.wheather.icon" width="80" height="80"/>
+                            <p class="">@Model.wheather.info</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        }
     </div>
 </form>
 
