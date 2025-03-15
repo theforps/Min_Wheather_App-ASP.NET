@@ -6,7 +6,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
 
 @{
-    var badCity = "City not found";
+    var bigLogo = "Weather";
+    var littleLogo = "Weather forecast for everyone";
 }
 
 <form method="post" style="height: 90vh;">
@@ -21,19 +22,17 @@
     
     @if (Model.Weather.City == "")
     {
-        Model.Weather.City = badCity;
+        Model.Weather.City = bigLogo;
+        Model.Weather.Country = littleLogo;
     }
 
     <div class="info-city">
         <div class="d-flex flex-wrap justify-content-center w-100">
             <div class="w-100 text-center">
                 <h2 class="name-city-country" style="font-size: 60px;">@Model.Weather.City</h2>
-                @if (Model.Weather.City != badCity)
-                {
-                    <h2 class="name-city-country">@Model.Weather.Country</h2>
-                }
+                <h2 class="name-city-country">@Model.Weather.Country</h2>
             </div>
-            @if (Model.Weather.City != badCity)
+            @if (Model.Weather.City != bigLogo)
             {
                 <div class="d-flex align-items-center mt-4 align-content-center">
                     <p class="temper">@Model.Weather.Temp &deg;c</p>
