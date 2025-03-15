@@ -1,4 +1,4 @@
-# ASP.NET MVC + PostgreSQL
+# ASP.NET SPA
 
 This template should help get you started developing.
 
@@ -8,13 +8,7 @@ This template should help get you started developing.
 
 ## Required SDKs
 
-[.NET 8.0](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
-
-## The database used
-
-[PostgreSQL](https://www.postgresql.org/)
-
-The database must be created independently the first time it is accessed.
+[.NET 7.0](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
 
 ## Project Setup
 
@@ -26,6 +20,3 @@ dotnet run
 ```
 
 The backend and frontend should start at the same time.
-
-### Configuration ```appsettings.json```
-* **ConnectionStrings** - database connection string.
