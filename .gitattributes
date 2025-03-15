@@ -1,2 +1,2 @@
 * text=auto
-#*.cshtml linguist-language=false
+*.cshtml linguist-language=false
