@@ -1,31 +1,30 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using Weather.Pages.Models;
+using Weather.Services;
 
-namespace Wheather.Pages
+namespace Weather.Pages;
+
+public class IndexModel : PageModel
 {
-    public class IndexModel : PageModel
+    private readonly IConnectApi _connectApi;
+        
+    public IndexModel(IConnectApi connectApi)
     {
+        _connectApi = connectApi;
+    }
+    
+    public WeatherInfo Weather = new();
+    public string Search = "";
 
-        public string name = "";
-        public WheatherModel wheather = new WheatherModel();
+    public async Task OnGet()
+    {
+        string ip = Request.HttpContext.Connection.RemoteIpAddress.ToString();
+        Weather = await _connectApi.GetWeather(ip);
+    }
 
-        public void OnGet()
-        {
-            string ip = Request.HttpContext.Connection.RemoteIpAddress.ToString();
-            wheather = ConnectToWheatherApi.GetWheather(ip).GetAwaiter().GetResult();
-        }
-
-        public void OnPost(string name) {
-            wheather = ConnectToWheatherApi.GetWheather(name).GetAwaiter().GetResult();
-
-            if (wheather.nameOfTheCity == null)
-            {
-                name = "";
-            }
-            else
-            {
-                name = wheather.nameOfTheCity;
-            }
-        }
+    public async Task OnPost(string Search) {
+        Weather = await _connectApi.GetWeather(Search);
+        
+        
     }
 }
